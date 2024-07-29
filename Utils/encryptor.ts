@@ -2,15 +2,11 @@ const Encryptor = require("crypto-js");
 const fs = require("fs");
 const path = require("path");
 
-const currentDir = __dirname;
-// Go one level above (back to 'src')
-const srcDir = path.resolve(currentDir, "..");
-
 // Change to 'config' folder
-const configDir = path.resolve(srcDir, "config");
-let envFilePath = `${configDir}\\.env`;
+const configDir = path.resolve(__dirname, '../config')
+let envFilePath = path.join(configDir, '.env')
 if (process.env.NODE_ENV) {
-  envFilePath = `${configDir}\\.env.${process.env.NODE_ENV}`;
+  envFilePath = path.join(configDir, `.env.${process.env.NODE_ENV}`)
 }
 
 //console.log(envFilePath);
@@ -22,7 +18,7 @@ export function encryptEnvFile() {
   const envLines = envFileContent.split("\n");
 
   // Encrypt values and update the array
-  const encryptedLines = envLines.map((line) => {
+  const encryptedLines = envLines.map((line: { split: (arg0: string) => [any, any]; }) => {
     const [key, value] = line.split("=");
 
     if (value) {
@@ -68,4 +64,12 @@ export function decryptEnvFile() {
   fs.writeFileSync(envFilePath, updatedEnvContent, "utf8");
 
   console.log("Decryption complete. Updated .env file.");
+}
+
+export function decrypt(cipherText: string) {
+  // Get the SALT from the system environment variable
+  const SALT = process.env.SALT || "defaultSALT";
+  const bytes = Encryptor.AES.decrypt(cipherText, SALT);
+  const originalText = bytes.toString(Encryptor.enc.Utf8);
+  return originalText;
 }
