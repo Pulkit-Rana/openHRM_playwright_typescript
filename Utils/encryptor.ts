@@ -45,7 +45,7 @@ export function decryptEnvFile() {
   const envLines = envFileContent.split("\n");
 
   // Encrypt values and update the array
-  const decryptedLines = envLines.map((line) => {
+  const decryptedLines = envLines.map((line: string) => {
     const [key, value] = line.split("=");
 
     if (value) {

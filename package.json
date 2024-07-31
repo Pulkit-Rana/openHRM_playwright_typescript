@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "description": "boiler plate framework for playwright using typescript",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node playwright test",
+    "test": "ts-node src/tests/sampleTest.spec.ts",
+    "clean": "rm -rf dist"
+  },
   "keywords": [],
   "author": "Pulkit Rana",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.45.3",
     "@types/crypto-js": "^4.2.2",
     "@types/node": "^22.0.0",
@@ -15,6 +21,9 @@
     "ts-jest": "^29.2.3"
   },
   "dependencies": {
-    "crypto-js": "^4.2.0"
+    "crypto-js": "^4.2.0",
+    "moment-timezone": "^0.5.45",
+    "ts-node": "^10.9.2",
+    "winston": "^3.13.1"
   }
 }

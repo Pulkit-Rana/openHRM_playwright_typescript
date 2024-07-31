@@ -1,4 +1,6 @@
 import { Page } from "@playwright/test"
+import logger from "../../Utils/loggerUtil"
+import DashboardPage from "./DashboardPage";
 
 export default class LoginPage {
     readonly page: Page;
@@ -15,11 +17,25 @@ export default class LoginPage {
 
     async navigate() {
         await this.page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+        logger.info("Navigated to orangeHRM");
     }
 
     async login(username: string, password: string) {
-        await this.page.fill(this.usernameInput, username);
-        await this.page.fill(this.passwordInput, password);
-        await this.page.click(this.loginButton);
+        await this.navigate();
+        await this.page.fill(this.usernameInput, username)
+        await this.page.fill(this.passwordInput, password)
+        return await this.clickLoginButton()
+    }
+
+    async clickLoginButton() {
+        await this.page.click(this.loginButton)
+            .catch((error) => {
+                logger.error(`Error clicking login button: ${error}`)
+                throw error; // rethrow the error if needed
+            })
+            .then(() => logger.info("Clicked login button"))
+
+        const dashboardPage = new DashboardPage(this.page);
+        return dashboardPage;
     }
 }

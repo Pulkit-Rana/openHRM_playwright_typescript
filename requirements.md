@@ -1,8 +1,8 @@
-# Enterprise Test Automation Framework for AUT (Salesforce)
+# Enterprise Test Automation Framework for AUT (OrangeHRM)
 
 ## 1. Overview
 
-The enterprise test automation framework is designed to provide a robust, scalable, and feature-rich solution for automated testing of the Salesforce application (AUT). The framework encompasses various features, including data-driven testing, logging, retry mechanism, self-healing, cross-browser testing, multiple environments, password encryption, code quality, CI/CD integration, reusable utilities, data generation, parallel testing, and API mocking/testing.
+The enterprise test automation framework is designed to provide a robust, scalable, and feature-rich solution for automated testing of the OrangeHRM Application (AUT). The framework encompasses various features, including data-driven testing, logging, retry mechanism, self-healing, cross-browser testing, multiple environments, password encryption, code quality, CI/CD integration, reusable utilities, data generation, parallel testing, and API mocking/testing.
 
 ## 2. Features
 
@@ -25,7 +25,7 @@ The enterprise test automation framework is designed to provide a robust, scalab
 
 ### 2.5 Self-Healing
 
-- **Objective:** Adapt to dynamic changes in the Salesforce application to minimize maintenance efforts.
+- **Objective:** Adapt to dynamic changes in the orangeHRM application to minimize maintenance efforts.
 
 ### 2.6 Cross-Browser Testing
 
@@ -61,7 +61,7 @@ The enterprise test automation framework is designed to provide a robust, scalab
 
 ### 2.14 API Mocking/Testing
 
-- **Objective:** Mock and test Salesforce APIs to validate backend functionality.
+- **Objective:** Mock and test orangeHRM APIs to validate backend functionality.
 
 ## 3. Test Scenarios (Sample)
 
@@ -72,18 +72,18 @@ The enterprise test automation framework is designed to provide a robust, scalab
 **Steps:**
 1. Create POM Class for login page.
 2. Create Tests using Page class and its methods to login.
-   - Log in to Salesforce.
+   - Log in to orangeHRM.
    - Verify the success of login
 
 
 ### 3.2 Data-Driven Testing
 
-**Scenario:** Verify creation of Salesforce records using different sets of data.
+**Scenario:** Verify creation of orangeHRM records using different sets of data.
 
 **Steps:**
 1. Retrieve test data from an external source.
 2. For each set of data:
-   - Log in to Salesforce.
+   - Log in to orangeHRM.
    - Create a new record with the provided data.
    - Verify the record creation is successful.
 
@@ -92,60 +92,60 @@ The enterprise test automation framework is designed to provide a robust, scalab
 **Scenario:** Validate detailed logging during a complex transaction.
 
 **Steps:**
-1. Initiate a complex transaction in Salesforce.
+1. Initiate a complex transaction in orangeHRM.
 2. Perform a series of steps.
 3. Log intermediate results, status, and any errors at each step.
 4. Verify the log file for expected entries and error messages.
 
 ### 3.4 Retry Mechanism
 
-**Scenario:** Test automatic retry of a failed Salesforce login.
+**Scenario:** Test automatic retry of a failed orangeHRM login.
 
 **Steps:**
-1. Introduce a temporary failure in Salesforce login.
+1. Introduce a temporary failure in orangeHRM login.
 2. Configure the framework to retry the login.
 3. Verify that the login is successful after the configured retries.
 
 ### 3.5 Self-Healing
 
-**Scenario:** Validate self-healing for a changed Salesforce page structure.
+**Scenario:** Validate self-healing for a changed orangeHRM page structure.
 
 **Steps:**
-1. Identify a stable element on a Salesforce page.
+1. Identify a stable element on a orangeHRM page.
 2. Introduce a change in the structure of the identified element.
 3. Execute a scenario that relies on the changed element.
 4. Verify that the framework dynamically adjusts, and the scenario passes.
 
 ### 3.6 Cross-Browser Testing
 
-**Scenario:** Verify Salesforce application on different browsers.
+**Scenario:** Verify orangeHRM application on different browsers.
 
 **Steps:**
 1. Configure the test to run on Chrome, Firefox, and Safari.
-2. Log in to Salesforce and perform key transactions on each browser.
+2. Log in to orangeHRM and perform key transactions on each browser.
 3. Verify consistent behavior across different browsers.
 
 ### 3.7 Multiple Environments
 
-**Scenario:** Test Salesforce functionality in different environments.
+**Scenario:** Test orangeHRM functionality in different environments.
 
 **Steps:**
-1. Configure the test to run in a Salesforce sandbox, developer edition, and production.
+1. Configure the test to run in a orangeHRM sandbox, developer edition, and production.
 2. Execute test scenarios in each environment.
-3. Verify that the application behaves as expected in different Salesforce environments.
+3. Verify that the application behaves as expected in different orangeHRM environments.
 
 ### 3.8 Password Encryption
 
-**Scenario:** Securely use an encrypted password for Salesforce login.
+**Scenario:** Securely use an encrypted password for orangeHRM login.
 
 **Steps:**
-1. Encrypt a Salesforce login password using the framework's encryption mechanism.
-2. Log in to Salesforce using the encrypted password.
+1. Encrypt a orangeHRM login password using the framework's encryption mechanism.
+2. Log in to orangeHRM using the encrypted password.
 3. Verify successful login with the encrypted password.
 
 ### 3.9 Code Quality
 
-**Scenario:** Enforce coding standards in Salesforce automation scripts.
+**Scenario:** Enforce coding standards in orangeHRM automation scripts.
 
 **Steps:**
 1. Perform a code review for adherence to coding standards.
@@ -154,15 +154,15 @@ The enterprise test automation framework is designed to provide a robust, scalab
 
 ### 3.10 CI/CD Integration
 
-**Scenario:** Integrate Salesforce automation with CI/CD pipeline.
+**Scenario:** Integrate orangeHRM automation with CI/CD pipeline.
 
 **Steps:**
-1. Configure the CI/CD pipeline to trigger Salesforce test automation.
+1. Configure the CI/CD pipeline to trigger orangeHRM test automation.
 2. Monitor pipeline execution for successful integration.
 
 ### 3.11 Reusable Utilities
 
-**Scenario:** Validate reuse of utility functions in Salesforce tests.
+**Scenario:** Validate reuse of utility functions in orangeHRM tests.
 
 **Steps:**
 1. Identify a common functionality shared across multiple tests.
@@ -171,7 +171,7 @@ The enterprise test automation framework is designed to provide a robust, scalab
 
 ### 3.12 Data Generation
 
-**Scenario:** Generate dynamic test data for Salesforce testing.
+**Scenario:** Generate dynamic test data for orangeHRM testing.
 
 **Steps:**
 1. Create a test scenario that requires dynamic test data.
@@ -181,7 +181,7 @@ The enterprise test automation framework is designed to provide a robust, scalab
 
 ### 3.13 Parallel Testing
 
-**Scenario:** Execute Salesforce tests concurrently for optimized execution.
+**Scenario:** Execute orangeHRM tests concurrently for optimized execution.
 
 **Steps:**
 1. Identify a suite of test scenarios suitable for parallel execution.
@@ -190,14 +190,14 @@ The enterprise test automation framework is designed to provide a robust, scalab
 
 ### 3.14 API Mocking/Testing
 
-**Scenario:** Mock and test Salesforce API interactions.
+**Scenario:** Mock and test orangeHRM API interactions.
 
 **Steps:**
-1. Identify a Salesforce API used in a test scenario.
+1. Identify a orangeHRM API used in a test scenario.
 2. Implement a mock for the identified API.
 3. Execute the test scenario, validating interaction with the mock API.
 
 ## Note:
 
-- Adapt these scenarios to match specific Salesforce application and the intricacies of framework.
+- Adapt these scenarios to match specific orangeHRM application and the intricacies of framework.
 - Regularly update the documentation to reflect changes and additions to features and scenarios.
