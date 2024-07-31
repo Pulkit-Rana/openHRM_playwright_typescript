@@ -1,17 +1,14 @@
 import { defineConfig, devices } from '@playwright/test'
 
-async function loadEnvConfig() {
-  if (!process.env.NODE_ENV) {
-    await import('dotenv').then(dotenv => dotenv.config({ path: `${__dirname}/config/.env` }))
-  } else {
-    await import('dotenv').then(dotenv =>
-      dotenv.config({
-        path: `${__dirname}/config/.env.${process.env.NODE_ENV}`,
-      })
-    )
-  }
+if (!process.env.NODE_ENV) {
+  import('dotenv').then(dotenv => dotenv.config({ path: `${__dirname}/config/.env` }))
+} else {
+  import('dotenv').then(dotenv =>
+    dotenv.config({
+      path: `${__dirname}/config/.env.${process.env.NODE_ENV}`,
+    })
+  )
 }
-await loadEnvConfig()
 
 export default defineConfig({
   timeout: 45000,

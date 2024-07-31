@@ -5,7 +5,6 @@ import logger from '../../Utils/loggerUtil'
 
 test('Login to OrangeHRM', async ({ page }) => {
   const loginPage = new LoginPage(page)
-
   // Perform login
   await loginPage.login(decrypt(process.env.userid!), decrypt(process.env.password!))
   logger.debug('This is faker in use $')
