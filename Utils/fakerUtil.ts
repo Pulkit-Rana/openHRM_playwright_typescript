@@ -1,22 +1,21 @@
-import { faker } from '@faker-js/faker';
-
+import { faker } from '@faker-js/faker'
 
 interface UserDate {
-  firstName: string;
-  lastName: string;
-  email: string;
-  username: string;
-  phoneNumber: string;
+  firstName: string
+  lastName: string
+  email: string
+  username: string
+  phoneNumber: string
   address: {
-    street: string;
-    city: string;
-    state: string;
-    zipCode: string;
-    country: string;
-  },
-  company: string;
-  jobTitle: string;
-  bio: string; 
+    street: string
+    city: string
+    state: string
+    zipCode: string
+    country: string
+  }
+  company: string
+  jobTitle: string
+  bio: string
 }
 
 // Generate fake user data
@@ -32,12 +31,10 @@ export function generateFakeUser(): UserDate {
       city: faker.location.city(),
       state: faker.location.state(),
       zipCode: faker.location.zipCode(),
-      country: faker.location.country()
+      country: faker.location.country(),
     },
     company: faker.company.name(),
     jobTitle: faker.person.jobTitle(),
     bio: faker.lorem.sentence(),
-  };
-};
-
-
+  }
+}

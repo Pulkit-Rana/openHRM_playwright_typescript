@@ -1,26 +1,31 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test'
 
-
-if(!process.env.NODE_ENV){
-  require('dotenv').config({path:`${__dirname}/config/.env`})
+async function loadEnvConfig() {
+  if (!process.env.NODE_ENV) {
+    await import('dotenv').then(dotenv => dotenv.config({ path: `${__dirname}/config/.env` }))
+  } else {
+    await import('dotenv').then(dotenv =>
+      dotenv.config({
+        path: `${__dirname}/config/.env.${process.env.NODE_ENV}`,
+      })
+    )
+  }
 }
-else{
-  require('dotenv').config({path:`${__dirname}/config/.env.${process.env.NODE_ENV}`})
-}
+await loadEnvConfig()
 
 export default defineConfig({
   timeout: 45000,
   testDir: './src/specs',
-  fullyParallel:true,
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 2,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-     baseURL: 'https://opensource-demo.orangehrmlive.com/web/index.php/',
+    baseURL: 'https://opensource-demo.orangehrmlive.com/web/index.php/',
     trace: 'on-first-retry',
-    screenshot: "on",
+    screenshot: 'on',
   },
   projects: [
     {
@@ -65,4 +70,4 @@ export default defineConfig({
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-});
+})
