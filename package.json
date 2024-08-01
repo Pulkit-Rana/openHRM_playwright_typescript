@@ -4,12 +4,13 @@
   "description": "boiler plate framework for playwright using typescript",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node playwright test",
+    "test:qa": "set NODE_ENV=qa && set SALT=PULKIT12 && npx playwright test",
     "test": "ts-node src/tests/sampleTest.spec.ts",
     "clean": "rm -rf dist",
     "lint": "eslint --config eslint.config.mjs .",
     "lint:fix": "eslint --config eslint.config.mjs . --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+   "check:all": "eslint --config eslint.config.mjs . --fix && prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\""
   },
   "keywords": [],
   "author": "Veersa Technologies",
