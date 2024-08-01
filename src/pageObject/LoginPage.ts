@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test'
 import logger from '../../Utils/loggerUtil'
-import DashboardPage from './DashboardPage'
+import WorkSummaryPage from './WorkSummaryPage'
 
 export default class LoginPage {
   readonly page: Page
@@ -10,14 +10,13 @@ export default class LoginPage {
 
   constructor(page: Page) {
     this.page = page
-    this.usernameInput = 'input[name="username"]'
+    this.usernameInput = 'input[name="workEmail"]'
     this.passwordInput = 'input[name="password"]'
     this.loginButton = 'button[type="submit"]'
   }
 
   async navigate() {
-    await this.page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    logger.info('Navigated to orangeHRM')
+    await this.page.goto('/')
   }
 
   async login(username: string, password: string) {
@@ -28,15 +27,18 @@ export default class LoginPage {
   }
 
   async clickLoginButton() {
-    await this.page
-      .click(this.loginButton)
-      .catch(error => {
-        logger.error(`Error clicking login button: ${error}`)
-        throw error // rethrow the error if needed
-      })
-      .then(() => logger.info('Clicked login button'))
+    await Promise.all([
+      this.page.click(this.loginButton),
+      this.page.waitForNavigation({ waitUntil: 'networkidle' }),
+    ])
+    .catch(error => {
+      logger.error(`Error clicking login button: ${error}`);
+      throw error; // rethrow the error if needed
+    });
 
-    const dashboardPage = new DashboardPage(this.page)
-    return dashboardPage
+    logger.info('Logged In Successfully!');
+
+    const workSummaryPage = new WorkSummaryPage(this.page);
+    return workSummaryPage;
   }
 }

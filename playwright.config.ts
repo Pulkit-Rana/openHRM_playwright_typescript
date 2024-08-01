@@ -20,7 +20,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'https://opensource-demo.orangehrmlive.com/web/index.php/',
+    baseURL: process.env.BASE_URL,
     trace: 'on-first-retry',
     screenshot: 'on',
   },
