@@ -10,18 +10,19 @@
     "lint": "eslint --config eslint.config.mjs .",
     "lint:fix": "eslint --config eslint.config.mjs . --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
-   "check:all": "eslint --config eslint.config.mjs . --fix && prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\""
+    "check:all": "eslint --config eslint.config.mjs . --fix && prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\""
   },
   "keywords": [],
-  "author": "Veersa Technologies",
+  "author": "Pulkit Rana",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@faker-js/faker": "^8.4.1",
-    "@playwright/test": "^1.45.3",
+    "@playwright/test": "^1.46.0",
     "@types/crypto-js": "^4.2.2",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.0.0",
+    "@zerostep/playwright": "^0.1.5",
     "dotenv": "^16.4.5",
     "eslint": "^9.8.0",
     "globals": "^15.8.0",

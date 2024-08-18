@@ -13,6 +13,6 @@
       "lib": ["es2018", "dom"],                 // Specify library files to be included in the compilation
       "allowSyntheticDefaultImports": true   // Allow default imports from modules with no default export
     },
-    "include": ["src/**/*.ts", "Utils"],           // Specify which directories to include in the compilation
+    "include": ["src/**/*.ts", "Utils", "src/pageObject/LoginPage"],           // Specify which directories to include in the compilation
     "exclude": ["node_modules"]      // Specify which directories to exclude from the compilation
   }
