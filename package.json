@@ -18,7 +18,7 @@
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@faker-js/faker": "^8.4.1",
-    "@playwright/test": "^1.46.0",
+    "@playwright/test": "^1.56.1",
     "@types/crypto-js": "^4.2.2",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.0.0",
